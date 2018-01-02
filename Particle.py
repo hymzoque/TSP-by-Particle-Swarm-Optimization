@@ -34,10 +34,16 @@ class Particle:
         print("distance : " + str(self.distance))
         
     # draw out this gene
-    def drawout(self, points):
+    def drawout(self, points, dataset=52):
         ax = plt.subplot()
-        ax.set_xlim(left=0, right=1800)
-        ax.set_ylim(bottom=0, top=1400)
+        if (dataset == 52):
+            x = 1800
+            y = 1400
+        elif (dataset == 130):
+            x = 800
+            y = 800
+        ax.set_xlim(left=0, right=x)
+        ax.set_ylim(bottom=0, top=y)
         for i in range(len(self.path)):
             p1 = self.path[i]
             p2 = self.path[i + 1] if i != len(self.path) - 1 else self.path[0]

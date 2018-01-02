@@ -9,16 +9,24 @@ import re
 import math
 
 class Initer:
-    def __init__(self):
-        self.__read_points()
+    def __init__(self, dataset=52):
+        self.__read_points(dataset)
         self.__calculate_distances()
     
     # read points
-    def __read_points(self):
+    def __read_points(self, dataset):
         self.points = []
-        data_file = open("berlin52.tsp", "r")
+        if (dataset == 52):
+            data_file = open("berlin52.tsp", "r")
+        elif (dataset == 130):
+            data_file = open("ch130.tsp", "r")
+        elif (dataset == 150):
+            data_file = open("ch150.tsp", "r")
+        else:
+            data_file = open("a280.tsp", "r")
+            
         for line in data_file.readlines():
-            matchobj = re.match("\d+ (\d+.0) (\d+.0)",line)
+            matchobj = re.match(" *\d+ +(\d+\.?\d*) +(\d+\.?\d*)",line)
             if matchobj:
                 self.points.append([float(matchobj.group(1)), float(matchobj.group(2))])
         data_file.close()

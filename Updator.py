@@ -14,6 +14,34 @@ class Updator:
         self.__distances = distances
         self.count = 0
     
+    # benchline
+    # from order1 crossover method
+    def update_benchline(self, reciever, insertor):
+        p_re = reciever.path
+        p_in = insertor.path
+        length = len(p_re)
+        # segmant length
+        seg_len = random.randint(1, length / 2)
+#        seg_len = 5
+        p1 = random.randint(0, length - 1)
+        p2 = p1 + seg_len
+        if (p2 >= length):
+            p2 -= length
+        
+        insection = [p_in[p1]]
+        insection.extend(self.__sub(p_in, p1, p2))
+        insection.append(p_in[p2])
+        temp_reci = self.__minus(p_re, insection)
+        if (p1 > p2):
+            temp_reci.extend(insection)
+            return Particle.Particle(temp_reci, reciever.neighbors, self.__distances)
+        else:
+            newone = temp_reci[:p1]
+            newone.extend(insection)
+            newone.extend(temp_reci[p1:])
+            return Particle.Particle(newone, reciever.neighbors, self.__distances)
+    
+    
     # put the segment of insertor into the reciever
     def update(self, reciever, insertor):
         r_re = reciever.path
@@ -47,7 +75,7 @@ class Updator:
         newone.extend(insection)
         
         return Particle.Particle(newone, reciever.neighbors, self.__distances)
-        
+    
     
     # @l list, @a begin, @b end
     # result sublist of l, not include a and b
