@@ -3,11 +3,11 @@ solve the TSP-52 problem by PSO
   
 language: python(without pypy)  
   
-benchline1: order1 crossover update method + update by neighbor best  
+**benchline1**: order1 crossover update method + update by neighbor best  
 more about order1 crossover, see http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/Order1CrossoverOperator.aspx  
-benchline2: origin crossover update method + update by 0.05 probability global best 0.95 neighbor best
+**benchline2**: origin crossover update method + update by 0.05 probability global best 0.95 neighbor best
   
-main method: origin crossover update method + update by neighbor best  
+**main method**: origin crossover update method + update by neighbor best  
 origin crossover example:  
 parent1 : 7 1 6 2 12 5 8 11 3 9 4 10  (good performance one)  
 parent2 : 1 2 3 4 5 6 7 8 9 10 11 12  (random one)  
