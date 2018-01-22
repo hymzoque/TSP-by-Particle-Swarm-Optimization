@@ -3,9 +3,9 @@ solve the TSP-52 problem by PSO
   
 language: python(without pypy)  
   
-**benchline1**: order1 crossover update method + update by neighbor best  
+**baseline1**: order1 crossover update method + update by neighbor best  
 more about order1 crossover, see http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/Order1CrossoverOperator.aspx  
-**benchline2**: original crossover update method + update by 0.05 probability global best 0.95 neighbor best
+**baseline2**: original crossover update method + update by 0.05 probability global best 0.95 neighbor best
   
 **main method**: original crossover update method + update by neighbor best  
   
